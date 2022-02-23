@@ -1,14 +1,17 @@
 When first downloaded please use:
 npm i
+--------------------------------------------------------------------------------------------------
 
-To start the server in dev mode:
+to start server in dev mode:
 npm run dev
-To start the server in prod mode:
+to start server in production mode:
 npm start
+
+--------------------------------------------------------------------------------------------------
 
 נושא: ספריית סרטים
 
-השפות השנתמש בהן:
+השפות שנשתמש  בהן:
 HTML
 CSS
 Bootstrap
@@ -19,7 +22,7 @@ ecma6+
 MongoDB
 
 סרבר:
-NodeJS - Express, Joi, Moongoose, jwt, nodemon
+NodeJS - Express, Joi, Moongoose, jwt, nodemon, bcryptjs
 
 רעיונות:
 ספריית סרטים
@@ -33,7 +36,18 @@ NodeJS - Express, Joi, Moongoose, jwt, nodemon
 אופציונלי: קטגוריות חיפוש.
  איפוס סיסמת משתמש
 
- חשוב:
+
+חשוב:
 סדר בתיקיות
 בדיקת שגיאות כתיב ותקלות
 קישורי חיבור בין הדפים
+
+
+--------------------------------------------------------------------------------------------------
+
+Nodemon:
+
+npm i nodemon -D 
+ (הותקן להגדרות של מתכנת
+ "Devdependencies" בתור
+-D ולא של השרת בעזרת )
