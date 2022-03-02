@@ -27,4 +27,13 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const moviesData = await moviesModel.selectAllMovies();
+    res.json({ moviesData });
+  } catch (err) {
+    res.status(401).json({ err });
+  }
+});
+
 module.exports = router;

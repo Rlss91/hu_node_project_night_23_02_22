@@ -14,6 +14,10 @@ const selectMovieByTitle = (title) => {
   return Movies.find({ title });
 };
 
+const selectAllMovies = () => {
+  return Movies.find();
+};
+
 const insertMovie = (title, year, img) => {
   const movieData = new Movies({
     title,
@@ -25,5 +29,6 @@ const insertMovie = (title, year, img) => {
 
 module.exports = {
   selectMovieByTitle,
+  selectAllMovies,
   insertMovie,
 };
