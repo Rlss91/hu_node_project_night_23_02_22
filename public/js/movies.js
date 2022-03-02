@@ -7,6 +7,7 @@ window.addEventListener("load", async () => {
     let htmlData = "";
     for (let movieItem of movies.moviesData) {
       htmlData += `
+      <div class="col">
         <div class="card">
           <img src="${movieItem.img}" class="card-img-top" alt="..." />
           <div class="card-body">
@@ -16,6 +17,7 @@ window.addEventListener("load", async () => {
             </p>
           </div>
         </div>
+      </div>
         `;
     }
     document.getElementById("movies-wapper").innerHTML = htmlData;
