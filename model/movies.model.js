@@ -44,9 +44,14 @@ const updateMovieById = (id, title, year, img) => {
   return Movies.updateOne({ _id: id }, objToUpdate);
 };
 
+const deleteMovieById = (id) => {
+  return Movies.deleteOne({ _id: id });
+};
+
 module.exports = {
   selectMovieByTitle,
   selectAllMovies,
   insertMovie,
   updateMovieById,
+  deleteMovieById,
 };

@@ -53,6 +53,19 @@ router.patch("/", async (req, res) => {
   }
 });
 
-router.patch("/", async (req, res) => {});
+//http://localhost:3000/api/movies/
+router.delete("/", async (req, res) => {
+  try {
+    const validatedId =
+      await moviesValidation.movieObjIdValidationSchema.validateAsync(req.body);
+    const movieData = await moviesModel.deleteMovieById(validatedId.id);
+    console.log("movieData", movieData);
+    if (movieData.deletedCount) res.json({ msg: "ok" });
+    else res.json({ msg: "not found" });
+  } catch (err) {
+    console.log("err", err);
+    res.status(401).json({ err });
+  }
+});
 
 module.exports = router;
