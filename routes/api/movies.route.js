@@ -27,13 +27,32 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+//http://localhost:3000/api/movies/
+router.patch("/", async (req, res) => {
   try {
-    const moviesData = await moviesModel.selectAllMovies();
-    res.json({ moviesData });
+    const validatedId =
+      await moviesValidation.movieObjIdValidationSchema.validateAsync({
+        id: req.body.id,
+      });
+    let newObj = { ...req.body };
+    delete newObj.id;
+    const validatedValue =
+      await moviesValidation.movieUpdateValidationSchema.validateAsync(newObj);
+    console.log("validatedValue", validatedValue);
+    const movieData = await moviesModel.updateMovieById(
+      req.body.id,
+      validatedValue.title,
+      validatedValue.year,
+      validatedValue.img
+    );
+    console.log("movieData", movieData);
+    res.json({ msg: "ok" });
   } catch (err) {
+    console.log("err", err);
     res.status(401).json({ err });
   }
 });
+
+router.patch("/", async (req, res) => {});
 
 module.exports = router;

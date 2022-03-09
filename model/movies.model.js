@@ -27,8 +27,26 @@ const insertMovie = (title, year, img) => {
   return movieData.save();
 };
 
+const updateMovieById = (id, title, year, img) => {
+  let objToUpdate = {};
+  if (title) {
+    objToUpdate = { ...objToUpdate, title };
+  }
+  if (year) {
+    objToUpdate = { ...objToUpdate, year };
+  }
+  if (img) {
+    objToUpdate = { ...objToUpdate, img };
+  }
+  if (!objToUpdate) {
+    return Promise.reject("please provide at list one field");
+  }
+  return Movies.updateOne({ _id: id }, objToUpdate);
+};
+
 module.exports = {
   selectMovieByTitle,
   selectAllMovies,
   insertMovie,
+  updateMovieById,
 };
