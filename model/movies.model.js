@@ -18,6 +18,14 @@ const selectAllMovies = () => {
   return Movies.find().sort({ year: 1 });
 };
 
+const selectAllMoviesAndSortByYear = (asc) => {
+  if (asc == "asc" || asc == "desc") {
+    return Movies.find().sort({ year: asc });
+  } else {
+    return Promise.reject("please use asc and desc only");
+  }
+};
+
 const insertMovie = (title, year, img) => {
   const movieData = new Movies({
     title,
@@ -51,6 +59,7 @@ const deleteMovieById = (id) => {
 module.exports = {
   selectMovieByTitle,
   selectAllMovies,
+  selectAllMoviesAndSortByYear,
   insertMovie,
   updateMovieById,
   deleteMovieById,

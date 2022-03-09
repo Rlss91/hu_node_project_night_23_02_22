@@ -77,4 +77,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/sortbydate/:sort", async (req, res) => {
+  try {
+    const moviesData = await moviesModel.selectAllMoviesAndSortByYear(
+      req.params.sort
+    );
+    res.json({ moviesData });
+  } catch (err) {
+    res.status(401).json({ err });
+  }
+});
+
 module.exports = router;
