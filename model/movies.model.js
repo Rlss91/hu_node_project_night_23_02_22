@@ -15,7 +15,7 @@ const selectMovieByTitle = (title) => {
 };
 
 const selectAllMovies = () => {
-  return Movies.find();
+  return Movies.find().sort({ year: 1 });
 };
 
 const insertMovie = (title, year, img) => {
